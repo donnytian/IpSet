@@ -309,6 +309,26 @@ namespace System.Net
             return number >= _low && number <= _high;
         }
 
+        /// <summary>
+        /// Checks whether the <see cref="IpRange"/> contains another specified <see cref="IpRange"/>.
+        /// </summary>
+        /// <param name="subRange">The IP range to be checked.</param>
+        /// <returns>True if contains; otherwise false.</returns>
+        public bool Contains(IpRange subRange)
+        {
+            if (subRange == null)
+            {
+                throw new ArgumentNullException(nameof(subRange));
+            }
+
+            if (subRange.Begin.AddressFamily != Begin.AddressFamily)
+            {
+                return false;
+            }
+
+            return subRange._low >= _low && subRange._high <= _high;
+        }
+
         private static byte[] GetMaskBytes(int byteLength, int maskLength)
         {
             var maskBytes = new byte[byteLength];

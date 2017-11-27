@@ -55,6 +55,39 @@ namespace System.Net
             return new IpSet(ranges);
         }
 
+        /// <summary>
+        /// Converts the string representations of a group of IP address ranges to <see cref="IpSet"/> equivalent.
+        /// A not null return value indicates the conversion succeeded.
+        /// </summary>
+        /// <example>
+        /// 192.168.0.10 - 192.168.10.20,192.168.0.*,192.168.0.0/255.255.255.0,192.168.0.0/16,fe80::/10,192.168.0.0
+        /// </example>
+        /// <param name="rangeStrings">Strings containing a group of IP address ranges to convert.</param>
+        /// <returns><see cref="IpSet"/> equivalent if strings were converted successfully; otherwise, null.</returns>
+        public static IpSet ParseOrDefault(IEnumerable<string> rangeStrings)
+        {
+            if (rangeStrings == null)
+            {
+                return null;
+            }
+
+            var list = new List<IpRange>();
+
+            foreach (var s in rangeStrings)
+            {
+                if (string.IsNullOrWhiteSpace(s))
+                {
+                    continue;
+                }
+
+                var parts = s.Split(',');
+                var ranges = parts.Select(IpRange.ParseOrDefault).Where(r => r != null);
+                list.AddRange(ranges);
+            }
+
+            return new IpSet(list);
+        }
+
         /// <inheritdoc />
         public IEnumerator<IPAddress> GetEnumerator()
         {

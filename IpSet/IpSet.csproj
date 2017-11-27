@@ -4,7 +4,7 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <RootNamespace>System.Net</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Authors>Donny Tian</Authors>
     <Company />
     <Product />
