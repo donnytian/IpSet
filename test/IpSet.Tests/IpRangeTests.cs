@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using Xunit;
 
-namespace IpSet.Tests
+namespace IpSetTests
 {
     public class IpRangeTests
     {

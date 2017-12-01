@@ -1,13 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFrameworks>netstandard1.3;net46</TargetFrameworks>
     <RootNamespace>System.Net</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.3</Version>
+    <Version>0.0.4</Version>
     <Authors>Donny Tian</Authors>
     <Company />
     <Product />
+    <Description>A simple tool to enumerate IpAddress and check if an IP address is contained by the defined range or set.
+Support both IPv4 and IPv6.
+Support CIDR notation.</Description>
+    <PackageProjectUrl>https://github.com/donnytian/IpSet</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
