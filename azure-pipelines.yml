@@ -34,7 +34,7 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'publish the output of your build to Azure Pipelines'
 
-- script: dotnet pack --configuration $(buildConfiguration)
+- script: dotnet pack IpSet/IpSet.csproj --configuration $(buildConfiguration)
   displayName: 'dotnet pack'
 
 - task: NuGetCommand@2
