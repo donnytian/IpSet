@@ -25,17 +25,14 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet publish $(buildConfiguration)'
+  displayName: dotnet pack
   inputs:
-    command: publish
-    publishWebProjects: False
-    arguments: 'IpSet/IpSet.csproj --framework netstandard1.3 --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    command: pack
+    arguments: 'IpSet/IpSet.csproj --configuration $(buildConfiguration)'
+    packDirectory: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'publish the output of your build to Azure Pipelines'
-
-- script: dotnet pack IpSet/IpSet.csproj --configuration $(buildConfiguration)
-  displayName: 'dotnet pack'
 
 - task: NuGetCommand@2
   displayName: 'publish to NuGet'
