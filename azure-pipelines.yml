@@ -29,7 +29,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: False
-    arguments: '~/IpSet/IpSet.csproj --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    arguments: 'IpSet/IpSet.csproj --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'publish the output of your build to Azure Pipelines'
