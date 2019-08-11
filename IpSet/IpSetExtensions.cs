@@ -1,7 +1,7 @@
 ﻿namespace System.Net
 {
     /// <summary>
-    /// Provides extension method for <see cref="IpSet"/>
+    /// Provides extension method for <see cref="IpSet"/>.
     /// </summary>
     public static class IpSetExtensions
     {

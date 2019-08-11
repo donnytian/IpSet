@@ -1,7 +1,7 @@
 ﻿namespace System.Net
 {
     /// <summary>
-    /// Provides extension method for <see cref="IpRange"/>
+    /// Provides extension method for <see cref="IpRange"/>.
     /// </summary>
     public static class IpRangeExtensions
     {
