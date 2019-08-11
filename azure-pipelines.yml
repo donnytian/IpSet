@@ -14,7 +14,7 @@ variables:
 
 steps:
 - task: DotNetCoreCLI@2
-  displayName: 'Run Tests'
+  displayName: 'run tests'
   inputs:
     command: test
     projects: '**/*.Tests.csproj'
@@ -23,11 +23,14 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
+- task: PublishBuildArtifacts@1
+  displayName: 'publish the output of your build to Azure Pipelines'
+
 - script: dotnet pack --configuration $(buildConfiguration)
   displayName: 'dotnet pack'
 
 - task: NuGetCommand@2
-  displayName: 'Publish to NuGet'
+  displayName: 'publish to NuGet'
   inputs:
     command: push
     nuGetFeedType: external
