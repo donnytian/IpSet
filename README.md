@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/dtian/IpSet/_apis/build/status/donnytian.IpSet?branchName=master)](https://dev.azure.com/dtian/IpSet/_build/latest?definitionId=1&branchName=master)
 # IpSet
 A simple tool to enumerate IpAddress and check if an IP address is contained by the defined range or set.
 
